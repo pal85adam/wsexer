@@ -14,7 +14,14 @@ public class Main {
                     + "\n(2) To retrieve location translations information."
                     + "\nElse Exit.");
 
-            int option = Integer.parseInt(scanner.next());
+            int option = 0;
+            // In case the user provides non numeric option
+            try {
+                option = Integer.parseInt(scanner.next());
+            }catch (NumberFormatException e){
+                // one way to exit the scope is to return;
+                return;
+            }
 
             switch (option){
                 case 1: {
@@ -33,6 +40,7 @@ public class Main {
                     System.out.println(PokemonDataHandler.printLocationTranslations(locationName));
 
                 } break;
+                // one way to exit the scope is to return;
                 default: return;
             }
         }
